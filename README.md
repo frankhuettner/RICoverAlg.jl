@@ -35,7 +35,7 @@ The code below creates Figure 1 of Matejka and McKay (2015, http://dx.doi.org/10
     ax[:plot](collect(-1:.1:1),collect(0.5:-0.0125:0.25), color="black", marker="o",   linewidth=2, label=L"$\lambda = 0$", alpha=0.6)
     ax[:plot](collect(-1:.1:1),res, color="purple", marker="s",  linewidth=2, label=L"$\lambda = 0.4$", alpha=0.6)
     ax[:legend](loc="upper right")
-    ax[:set_title](L"Unconditional Probability of Selecting a Bus for Various Values of $\lambda$ and $\rho$)")
+    ax[:set_title](L"Unconditional Probability of Selecting a Bus for Various Values of $\lambda$ and $\rho$")
     ax[:set_xlabel](L"$\rho$")
     ax[:set_ylabel](L"Probability")
     # savefig("plot") #uncomment to safe the figure
