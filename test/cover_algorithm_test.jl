@@ -11,7 +11,11 @@ Z = exp.(U/lmd)
 
 @test cancel_zero_alternatives(U,g) == (U,g,findall(a->(!isapprox(a,0; atol = 0)), g))
 @test do_cover_iterations(Z,g,[.5,.5]) == [0.2901315939203102, 0.7098684060796899]
-@test run_cover_algorithm(Z,g) == ([0.2901315939203102, 0.7098684060796899],8.880930086724845,10,"all fine")
+@test run_cover_algorithm(Z,g,
+                  initialIterations  = 10,
+                  aTolSetChoiceProbToZero = 10e-6,
+                  aTolerance4Stopping = 0.0,
+                  maxIterations = 9999) == ([0.2901315939203102, 0.7098684060796899],8.880930086724845,10,"Run Cover Algorithm")
 @test cancel_zero_alternatives(Z,g) == (Z,g,collect(1:1:40))
 @test cancel_zero_alternatives(Z,[0.,1.]) == (Z[[2],:],[1.],[2])
 
