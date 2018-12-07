@@ -6,23 +6,32 @@ for i in (1:n)
    U[2,i] = 28 - i
 end
 
-@test  all(risolve(U,g,1)[1:3] .≈ ([0.2901315939203102, 0.7098684060796899],8.880930086724845,10))
+@test  all(risolve(U,g,1,
+                  initialIterations = 10,
+                  aTolSetChoiceProbToZero = 10e-6,
+                  aTolerance4Stopping = 0.0,
+                  maxIterations = 9999)[1:2] .≈ ([0.2901315939203102, 0.7098684060796899],8.880930086724845))
 
 
 # Matejka and McKay 2015, RBT
-m = 3;  n = 4
 U = [0 1 0 1;
     0 0 1 1;
     1/2 1/2 1/2 1/2]
 lmd = 0.4
 ρ = 0
-res = []
+results = []
+gs = []
 for ρ=-1:0.1:1
     g = [1+ρ; 1-ρ; 1-ρ; 1+ρ]./4
-    result = risolve(U, g, lmd)
-    push!(res,result[1][1])
+    push!(gs,g)
+    result = risolve(U, g, lmd,
+                      initialIterations  = 10,
+                      aTolSetChoiceProbToZero = eps(),
+                      aTolerance4Stopping = 0.0,
+                      maxIterations = 9999)
+    push!(results,result[1][1])
 end
-correct_res = [ 0.5
+correct_results = [ 0.5
  0.5000000000000001
  0.5
  0.5
@@ -43,4 +52,4 @@ correct_res = [ 0.5
  0.27679620629020485
  0.2629410102570515
  0.2500000009320786 ]
-@test all(res .≈ correct_res)
+@test all((results .+10) .≈ (correct_results .+ 10))
