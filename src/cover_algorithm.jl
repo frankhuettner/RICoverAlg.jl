@@ -45,7 +45,7 @@ function run_cover_algorithm(Z::Array{Float64,2},
         p = do_cover_iterations(localZ, g, p, initialIterations)
         iterationsDone += initialIterations
 
-        localZ, p, notToZero = cancel_zero_alternatives(localZ, p, aTolSetChoiceProbToZero/length(p))
+        localZ, p, notToZero = cancel_zero_alternatives(localZ, p, aTolSetChoiceProbToZero)
         push!(notToZeroLists, notToZero)
 
         ## check necessary conditions (cover alg doesn't improve anymore beyond precision)
