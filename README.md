@@ -2,9 +2,10 @@
 This is a Julia repository to compute solutions for a discrecte rational inattention problem (Sims 2003, https://doi.org/10.1016/S0304-3932(03)00029-1) using the algorithm suggested by Thomas Cover (1984, https://doi.org/10.1109/TIT.1984.1056869).
 
 ## Installing this Package
-Since this package is not registered, you must install it by cloning. To add this package, type "]" in the REPL to enter the pkg manager and execute:
-    clone("https://github.com/frankhuettner/RICoverAlg.jl")
+Since this package is not registered, you must install it by cloning. To add this package, execute: 
 
+    using Pkg
+    Pkg.clone("https://github.com/frankhuettner/RICoverAlg.jl")
 
 ## Usage
     using RICoverAlg
