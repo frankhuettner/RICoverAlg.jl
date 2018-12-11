@@ -1,8 +1,9 @@
-function convertInputsToFloats(U, g, lmd)
+function convertInputsToFloats(U, g, lmd, p_guess)
     U = convert(Array{Float64}, U)
     g = convert(Array{Float64}, g)
+    p_guess = convert(Array{Float64}, p_guess)
     lmd = convert(Float64, lmd)
-    return U,g,lmd
+    return U,g,lmd,p_guess
 end
 
 function cancelZeroStates(U,g)
@@ -14,11 +15,8 @@ function cancelZeroStates(U,g)
 end
 
 function transform_utilities(U, lmd)
-    # shiftterm = (((maximum(U)+minimum(U))/2))   ## reduce extremes of U for numerical stability
-    # Z = exp.((U.-shiftterm)/lmd)    ## transform utilities
-    shiftterm = 0
     Z = exp.(U/lmd)    ## transform utilities
-    return Z, shiftterm
+    return Z
 end
 
 function checkForTriviality(Z,g,m)
@@ -45,13 +43,13 @@ function checkForBoundarySolution(Z,g)
     return "no boundary solution"
 end
 
-function preprocessinput(U, g, lmd)
+function preprocessinput(U, g, lmd, p_guess)
     m = size(U)[1]
-    solution = (ones(m)/m,0,0,"Run Cover Algorithm")
+    solution = (p_guess,0,0,"Run Cover Algorithm")
 
-    U,g = convertInputsToFloats(U, g, lmd)
-    U,g,nonzeroStates = cancelZeroStates(U,g)
-    Z,shiftterm = transform_utilities(U,lmd)
+    U, g, lmd, p_guess = convertInputsToFloats(U, g, lmd, p_guess)
+    U, g, nonzeroStates = cancelZeroStates(U,g)
+    Z = transform_utilities(U,lmd)
     intermediateSolution = checkForTriviality(Z,g,m)
     if intermediateSolution != "not trivial"
           solution = intermediateSolution
@@ -62,5 +60,5 @@ function preprocessinput(U, g, lmd)
               solution = intermediateSolution
         end
     end
-    return Z,g,shiftterm,solution
+    return Z,g,solution
 end

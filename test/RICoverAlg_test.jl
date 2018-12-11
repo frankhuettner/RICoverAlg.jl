@@ -7,10 +7,18 @@ for i in (1:n)
 end
 
 @test  all(risolve(U,g,1,
-                  initialIterations = 10,
-                  aTolSetChoiceProbToZero = 10e-6,
-                  aTolerance4Stopping = 0.0,
-                  maxIterations = 9999)[1:2] .≈ ([0.2901315939203102, 0.7098684060796899],8.880930086724845))
+                  iterationBtwSetting2Zero = 10,
+                  aTol4Stopping = 0.0,
+                  maxIterations = 9999)[1:2] .≈
+  ([0.2901315939203102, 0.7098684060796899],8.880930086724845))
+
+@test risolve(U,g,1,
+        iterationBtwSetting2Zero  = 5,
+        aTol4SetProbsToZero = 10e-7,
+        aTol4SetMinProbsToZero = 10e-7,
+        aTol4Stopping = 0.0,
+        maxIterations = 9999,
+        p_guess = [0.2901315939203102, 0.7098684060796899])[2] == 8.880930086724844
 
 
 # Matejka and McKay 2015, RBT
@@ -19,15 +27,16 @@ U = [0 1 0 1;
     1/2 1/2 1/2 1/2]
 lmd = 0.4
 ρ = 0
+p_guess = [.25,.25,.25,.25]
 results = []
 gs = []
 for ρ=-1:0.1:1
     g = [1+ρ; 1-ρ; 1-ρ; 1+ρ]./4
     push!(gs,g)
     result = risolve(U, g, lmd,
-                      initialIterations  = 10,
-                      aTolSetChoiceProbToZero = eps(),
-                      aTolerance4Stopping = 0.0,
+                      iterationBtwSetting2Zero  = 100,
+                      aTol4SetProbsToZero = 10e-6,
+                      aTol4Stopping = 0.0,
                       maxIterations = 9999)
     push!(results,result[1][1])
 end
