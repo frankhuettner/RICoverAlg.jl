@@ -24,7 +24,7 @@ push!(waitProbs,result[1][2])   ## push!(list,x) adds x to list - here the secon
 end
 end
 
-@test t1 <= 0.3
+@test t1 <= 0.43
 
 
 # using BenchmarkTools
