@@ -6,18 +6,13 @@
 [![Coverage](https://coveralls.io/repos/github/FrankHuettner/RICoverAlg.jl/badge.svg?branch=main)](https://coveralls.io/github/FrankHuettner/RICoverAlg.jl?branch=main)
 
 
-[![Build Status](https://travis-ci.com/FrankHuettner/RICoverAlg.jl.svg?branch=main)](https://travis-ci.com/FrankHuettner/RICoverAlg.jl)
-[![Build Status](https://ci.appveyor.com/api/projects/status/github/FrankHuettner/RICoverAlg.jl?svg=true)](https://ci.appveyor.com/project/FrankHuettner/RICoverAlg-jl)
-[![Coverage](https://codecov.io/gh/FrankHuettner/RICoverAlg.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/FrankHuettner/RICoverAlg.jl)
-[![Coverage](https://coveralls.io/repos/github/FrankHuettner/RICoverAlg.jl/badge.svg?branch=main)](https://coveralls.io/github/FrankHuettner/RICoverAlg.jl?branch=main)
-
 This is a Julia repository to compute solutions for a discrecte rational inattention problem (Sims 2003, https://doi.org/10.1016/S0304-3932(03)00029-1) using the algorithm suggested by Thomas Cover (1984, https://doi.org/10.1109/TIT.1984.1056869).
 
 ## Installing this Package
-Since this package is not registered, you must install it by cloning. To add this package, execute: 
+Since this package is not registered yet, you must install it from GitHub. To add this package, execute: 
 
-    using Pkg
-    Pkg.clone("https://github.com/frankhuettner/RICoverAlg.jl")
+    import Pkg
+    Pkg.add(url = "https://github.com/frankhuettner/RICoverAlg.jl")
 
 ## Usage
     using RICoverAlg
@@ -43,12 +38,8 @@ The code below creates Figure 1 of Matejka and McKay (2015, http://dx.doi.org/10
         push!(res,result[1][1])
     end
 
-    fig, ax = subplots()
-    ax[:plot](collect(-1:.1:1),collect(0.5:-0.0125:0.25), color="black", marker="o",   linewidth=2, label=L"$\lambda = 0$", alpha=0.6)
-    ax[:plot](collect(-1:.1:1),res, color="purple", marker="s",  linewidth=2, label=L"$\lambda = 0.4$", alpha=0.6)
-    ax[:legend](loc="upper right")
-    ax[:set_title](L"Unconditional Probability of Selecting a Bus for Various Values of $\lambda$ and $\rho$ (The probability is the same for both the red and blue buses)")
-    ax[:set_xlabel](L"$\rho$")
-    ax[:set_ylabel](L"Probability")
-    # savefig("plot") #uncomment to safe the figure
+    plot(-1:.1:1, res, label="λ=0.4", c=:purple, marker=:square, alpha=0.6,
+        xlabel="ρ", ylabel="Unconditional Choice Probability")
+    plot!(-1:.1:1, 0.5:-0.0125:0.25, label="λ=0", c=:black, marker=:o, alpha=0.6)
+    savefig("MM_RBT.png") 	
 ![alt text](doc/img/MM_RBT.png "Figure 1 of Majetka and McKay (2015) -- computation done with the package RICoverAlg")
