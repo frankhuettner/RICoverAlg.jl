@@ -1,4 +1,16 @@
 # RICoverAlg
+
+[![Build Status](https://travis-ci.com/FrankHuettner/RICoverAlg.jl.svg?branch=main)](https://travis-ci.com/FrankHuettner/RICoverAlg.jl)
+[![Build Status](https://ci.appveyor.com/api/projects/status/github/FrankHuettner/RICoverAlg.jl?svg=true)](https://ci.appveyor.com/project/FrankHuettner/RICoverAlg-jl)
+[![Coverage](https://codecov.io/gh/FrankHuettner/RICoverAlg.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/FrankHuettner/RICoverAlg.jl)
+[![Coverage](https://coveralls.io/repos/github/FrankHuettner/RICoverAlg.jl/badge.svg?branch=main)](https://coveralls.io/github/FrankHuettner/RICoverAlg.jl?branch=main)
+
+
+[![Build Status](https://travis-ci.com/FrankHuettner/RICoverAlg.jl.svg?branch=main)](https://travis-ci.com/FrankHuettner/RICoverAlg.jl)
+[![Build Status](https://ci.appveyor.com/api/projects/status/github/FrankHuettner/RICoverAlg.jl?svg=true)](https://ci.appveyor.com/project/FrankHuettner/RICoverAlg-jl)
+[![Coverage](https://codecov.io/gh/FrankHuettner/RICoverAlg.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/FrankHuettner/RICoverAlg.jl)
+[![Coverage](https://coveralls.io/repos/github/FrankHuettner/RICoverAlg.jl/badge.svg?branch=main)](https://coveralls.io/github/FrankHuettner/RICoverAlg.jl?branch=main)
+
 This is a Julia repository to compute solutions for a discrecte rational inattention problem (Sims 2003, https://doi.org/10.1016/S0304-3932(03)00029-1) using the algorithm suggested by Thomas Cover (1984, https://doi.org/10.1109/TIT.1984.1056869).
 
 ## Installing this Package
