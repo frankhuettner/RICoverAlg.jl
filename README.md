@@ -25,7 +25,7 @@ where 'UtilTable' is a payoff matrix: the rows correspond to the actions, the co
 The code below creates Figure 1 of Matejka and McKay (2015, http://dx.doi.org/10.1257/aer.20130047):
 
     using RICoverAlg
-    using PyPlot
+    using Plots
     UtilTable = [0 1 0 1;
         0 0 1 1;
         1/2 1/2 1/2 1/2]
