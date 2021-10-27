@@ -1,6 +1,5 @@
 # RICoverAlg
 
-[![Build Status](https://travis-ci.com/FrankHuettner/RICoverAlg.jl.svg?branch=main)](https://travis-ci.com/FrankHuettner/RICoverAlg.jl)
 [![Build Status](https://ci.appveyor.com/api/projects/status/github/FrankHuettner/RICoverAlg.jl?svg=true)](https://ci.appveyor.com/project/FrankHuettner/RICoverAlg-jl)
 [![Coverage](https://codecov.io/gh/FrankHuettner/RICoverAlg.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/FrankHuettner/RICoverAlg.jl)
 [![Coverage](https://coveralls.io/repos/github/FrankHuettner/RICoverAlg.jl/badge.svg?branch=main)](https://coveralls.io/github/FrankHuettner/RICoverAlg.jl?branch=main)
