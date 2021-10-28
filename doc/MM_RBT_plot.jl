@@ -12,7 +12,10 @@ begin
 end
 
 # ╔═╡ 2e419b18-204f-4604-ac62-006112717796
-using Plots
+begin
+	Pkg.add("Plots")
+	using Plots
+end
 
 # ╔═╡ 5f1dbaf1-c88e-43d8-8039-2c5eeba35f23
 md"To use the package, you have to add it from its github url:"
