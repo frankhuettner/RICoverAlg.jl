@@ -7,17 +7,18 @@ module RICoverAlg
 
 export preprocessinput,convertInputsToFloats, cancelZeroStates, checkForTriviality, transform_utilities
 export do_cover_iterations,cancel_zero_alternatives,run_cover_algorithm,compute_factor
-export risolve, checkOptimalityOfp
+export risolve
+# export checkOptimalityOfp
 
 include("preprocessinput.jl")
 include("cover_algorithm.jl")
 
-function checkOptimalityOfp(U,g,lmd,p)
-      Z = exp.(U./lmd)
-      ϵ_max = lmd * log(findmax(compute_factor(Z,g,p))[1])
-      payoff = lmd * ((log.(p'*Z))*g)[1]
-      return payoff, ϵ_max, payoff/(ϵ_max+payoff)
-end
+# function checkOptimalityOfp(U,g,lmd,p)
+#       Z = exp.(U./lmd)
+#       ϵ_max = lmd * log(findmax(compute_factor(Z,g,p))[1])
+#       payoff = lmd * ((log.(p'*Z))*g)[1]
+#       return payoff, ϵ_max, payoff/(ϵ_max+payoff)
+# end
 
 function risolve(U, g, lmd;
                   initialIterations::Int  = 10,
@@ -54,9 +55,3 @@ end
 end # module
 
 
-#### ## for developing stuff
-# cd("C://Users//Frank_sPro//Nextcloud//my_JuliaDev//RICoverAlg")
-# using Pkg
-# Pkg.activate(".")
-# using Revise
-# using RICoverAlg
