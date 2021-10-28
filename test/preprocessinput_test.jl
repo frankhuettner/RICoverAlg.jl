@@ -17,6 +17,9 @@ Z = exp.((U.-0)/lmd)
 @test checkForTriviality([2. 1.],[.1; 0.9],1) == (ones(1), log(2.)*.1+log(1.)*.9, 0, "Trivial: only one action is possible")
 @test checkForTriviality([2. ; 1.],[1],2) == ([1. ; 0.], log(2.0), 0, "Trivial: only one state is possible")
 
+@test risolve(U, g, 10)[1] == [0.0, 1.0]
+@test risolve(reverse(U,dims=1), g, 10)[3] == "Found boundary solution (two alternatives only); Number of iterations: 0; Resulting payoff 7.500000000000002 is 1.0 optimal (maximal payoff <= 7.500000000000002)"
+
 # Matejka & McKay 2015, RBT
 U = [0 1 0 1;
     0 0 1 1;
