@@ -14,23 +14,13 @@ end
 
 
 # Matejka and McKay 2015, RBT
-U = [0 1 0 1;
+UtilTable = [0 1 0 1;
     0 0 1 1;
     1/2 1/2 1/2 1/2]
-lmd = 0.4
-ρ = 0
-results = []
-gs = []
-for ρ=-1:0.1:1
-    g = [1+ρ; 1-ρ; 1-ρ; 1+ρ]./4
-    push!(gs,g)
-    result = risolve(U, g, lmd,
-                      initialIterations  = 10,
-                      aTolSetChoiceProbToZero = eps(),
-                      aTolerance4Stopping = 0.0,
-                      maxIterations = 9999)
-    push!(results,result[1][1])
-end
+λ = 0.4
+ρs = -1:0.1:1
+results = [risolve(UtilTable, [1+ρ; 1-ρ; 1-ρ; 1+ρ]./4, λ)[1][1] for ρ in ρs]
+
 correct_results = [ 0.5
  0.5000000000000001
  0.5
