@@ -1,5 +1,5 @@
 # RICoverAlg
-[![CI](https://github.com/frankhuettner/RICoverAlg.jl/actions/workflows/main.yml/badge.svg)](https://github.com/frankhuettner/RICoverAlg.jl/actions/workflows/main.yml)
+[![CI](https://github.com/frankhuettner/RICoverAlg.jl/actions/workflows/test.yml/badge.svg)](https://github.com/frankhuettner/RICoverAlg.jl/actions/workflows/test.yml)
 [![Coverage](https://codecov.io/gh/FrankHuettner/RICoverAlg.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/FrankHuettner/RICoverAlg.jl)
 
 
