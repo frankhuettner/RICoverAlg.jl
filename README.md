@@ -21,8 +21,7 @@ where 'UtilTable' is a payoff matrix: the rows correspond to the actions, the co
 
 ## Example (1)
 
-	import Pkg
-	Pkg.add(url = "https://github.com/frankhuettner/RICoverAlg.jl")
+	import Pkg; Pkg.add("RICoverAlg")
 	using RICoverAlg
     
     UtilTable = [ 0   1   0   1;
@@ -42,8 +41,7 @@ This gives 0.27679620629020496, which is the unconditional probability of chosin
 ## Example (2)
 The code below creates Figure 1 of Matejka and McKay (2015, http://dx.doi.org/10.1257/aer.20130047):
 
-	import Pkg
-	Pkg.add(url = "https://github.com/frankhuettner/RICoverAlg.jl")
+	import Pkg; Pkg.add("RICoverAlg")
 	using RICoverAlg
     
     UtilTable = [ 0   1   0   1;
